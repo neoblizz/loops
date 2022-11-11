@@ -1,5 +1,5 @@
 /**
- * @file thread_mapped.cu
+ * @file merge_path.cu
  * @author Muhammad Osama (mosama@ucdavis.edu)
  * @brief Sparse Matrix-Vector Multiplication example.
  * @version 0.1
@@ -10,7 +10,7 @@
  */
 
 #include "helpers.hxx"
-#include <loops/algorithms/spmv/thread_mapped.cuh>
+#include <loops/algorithms/spmv/merge_path_flat.cuh>
 
 using namespace loops;
 
@@ -31,14 +31,15 @@ int main(int argc, char** argv) {
 
   // Generate random numbers between [0, 1].
   generate::random::uniform_distribution(x.begin(), x.end(), 1, 10);
+  // thrust::fill(x.begin(), x.end(), 2);
 
   // Run the benchmark.
   util::timer_t timer;
   timer.start();
-  algorithms::spmv::thread_mapped(csr, x, y);
+  algorithms::spmv::merge_path_flat(csr, x, y);
   timer.stop();
 
-  std::cout << "thread_mapped," << mtx.dataset << "," << csr.rows << "," << csr.cols << "," << csr.nnzs << "," << timer.milliseconds() << std::endl;
+  std::cout << "Elapsed (ms):\t" << timer.milliseconds() << std::endl;
 
   // Validation.
   if (parameters.validate)
