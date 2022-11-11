@@ -69,7 +69,7 @@ add_library(loops INTERFACE)
 ## CUDA_ARCHITECTURES property from loops project.
 ## see: get_target_properties()
 message(STATUS "${Magenta}Set SM Architecture using -DCMAKE_CUDA_ARCHITECTURES=75,80${ColourReset}")
-set(CMAKE_CUDA_ARCHITECTURES 75)
+set(CMAKE_CUDA_ARCHITECTURES 70)
 
 ####################################################
 ############### SET TARGET PROPERTIES ##############
