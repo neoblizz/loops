@@ -97,7 +97,7 @@ void merge_path_flat(csr_t<index_t, offset_t, type_t>& csr,
                      cudaStream_t stream = 0) {
   // Create a schedule.
   constexpr std::size_t block_size = 128;
-  constexpr std::size_t items_per_thread = 3;
+  constexpr std::size_t items_per_thread = 4;
 
   /// Set-up kernel launch parameters and run the kernel.
   int max_dim_x;

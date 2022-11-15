@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
   algorithms::spmv::merge_path_flat(csr, x, y);
   timer.stop();
 
-  std::cout << "Elapsed (ms):\t" << timer.milliseconds() << std::endl;
+  std::cout << "merge_path_flat," << mtx.dataset << "," << csr.rows << "," << csr.cols << "," << csr.nnzs << "," << timer.milliseconds() << std::endl;
 
   // Validation.
   if (parameters.validate)
